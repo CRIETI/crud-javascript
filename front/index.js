@@ -75,6 +75,19 @@ const userEdit = () => {
         });
 }
 
+const userDelete = async (id) => {
+    const user = await getUser(id);
+    const data = user.data;
+    axios.delete(`${endpoint}/users/` + id)
+        .then((response) => {
+            Swal.fire(`User ${data.name} deleted`);
+            loadTable();
+        }, (error) => {
+            Swal.fire(`Error to delete user: ${error.response.data.error} `);
+            loadTable();
+        });
+};
+
 const showUserCreateBox = () => {
     Swal.fire({
         title: 'Create user',
@@ -111,16 +124,3 @@ const showUserEditBox = async (id) => {
     });
 
 }
-
-const userDelete = async (id) => {
-    const user = await getUser(id);
-    const data = user.data;
-    axios.delete(`${endpoint}/users/` + id)
-        .then((response) => {
-            Swal.fire(`User ${data.name} deleted`);
-            loadTable();
-        }, (error) => {
-            Swal.fire(`Error to delete user: ${error.response.data.error} `);
-            loadTable();
-        });
-};
