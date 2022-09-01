@@ -1,4 +1,4 @@
-const endpoint = "http://177.44.248.30/usersapi";
+const endpoint = "http://localhost:3000";
 
 loadTable = () => {
     axios.get(`${endpoint}/users`)
