@@ -1,6 +1,6 @@
 const endpoint = "http://localhost:3000";
 
-loadTable = () => {
+const loadTable = () => {
     axios.get(`${endpoint}/users`)
         .then((response) => {
             if (response.status === 200) {
@@ -24,7 +24,7 @@ loadTable = () => {
 
 loadTable();
 
-userCreate = () => {
+const userCreate = () => {
     const name = document.getElementById("name").value;
     const age = document.getElementById("age").value;
     const sex = document.getElementById("sex").value;
@@ -47,11 +47,11 @@ userCreate = () => {
         });
 }
 
-getUser = (id) => {
+const getUser = (id) => {
     return axios.get(`${endpoint}/users/` + id);
 }
 
-userEdit = () => {
+const userEdit = () => {
     const id = document.getElementById("id").value;
     const name = document.getElementById("name").value;
     const age = document.getElementById("age").value;
@@ -75,7 +75,7 @@ userEdit = () => {
         });
 }
 
-showUserCreateBox = () => {
+const showUserCreateBox = () => {
     Swal.fire({
         title: 'Create user',
         html:
@@ -92,7 +92,7 @@ showUserCreateBox = () => {
     });
 }
 
-showUserEditBox = async (id) => {
+const showUserEditBox = async (id) => {
     const user = await getUser(id);
     const data = user.data;
     Swal.fire({
@@ -112,7 +112,7 @@ showUserEditBox = async (id) => {
 
 }
 
-userDelete = async (id) => {
+const userDelete = async (id) => {
     const user = await getUser(id);
     const data = user.data;
     axios.delete(`${endpoint}/users/` + id)
