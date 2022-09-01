@@ -42,8 +42,10 @@ userCreate = () => {
             loadTable();
         }, (error) => {
             console.log(error);
-            Swal.fire(`Error to create user: ${error.response.data.error} `);
-            loadTable();
+            Swal.fire(`Error to create user: ${error.response.data.error} `)
+                .then(() => {
+                    showUserCreateBox();
+                })
         });
 }
 
@@ -70,8 +72,10 @@ userEdit = () => {
             loadTable();
         }, (error) => {
             console.log(error);
-            Swal.fire(`Error to update user: ${error.response.data.error} `);
-            loadTable();
+            Swal.fire(`Error to update user: ${error.response.data.error} `)
+                .then(() => {
+                    showUserEditBox(id);
+                })
         });
 }
 
