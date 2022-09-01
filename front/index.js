@@ -37,11 +37,9 @@ userCreate = () => {
         email: email,
     })
         .then((response) => {
-            console.log(response);
             Swal.fire(`User ${response.data.name} created`);
             loadTable();
         }, (error) => {
-            console.log(error);
             Swal.fire(`Error to create user: ${error.response.data.error} `)
                 .then(() => {
                     showUserCreateBox();
@@ -67,11 +65,9 @@ userEdit = () => {
         email: email,
     })
         .then((response) => {
-            console.log(response);
             Swal.fire(`User ${response.data.name} updated`);
             loadTable();
         }, (error) => {
-            console.log(error);
             Swal.fire(`Error to update user: ${error.response.data.error} `)
                 .then(() => {
                     showUserEditBox(id);
@@ -89,6 +85,7 @@ showUserCreateBox = () => {
             '<input id="sex" class="swal2-input" placeholder="Sex">' +
             '<input id="email" class="swal2-input" placeholder="Email">',
         focusConfirm: false,
+        showCancelButton: true,
         preConfirm: () => {
             userCreate();
         }
@@ -96,7 +93,6 @@ showUserCreateBox = () => {
 }
 
 showUserEditBox = async (id) => {
-    console.log(id);
     const user = await getUser(id);
     const data = user.data;
     Swal.fire({
@@ -108,6 +104,7 @@ showUserEditBox = async (id) => {
             '<input id="sex" class="swal2-input" placeholder="Sex" value="' + data.sex + '">' +
             '<input id="email" class="swal2-input" placeholder="Email" value="' + data.email + '">',
         focusConfirm: false,
+        showCancelButton: true,
         preConfirm: () => {
             userEdit();
         }
@@ -120,11 +117,9 @@ userDelete = async (id) => {
     const data = user.data;
     axios.delete(`${endpoint}/users/` + id)
         .then((response) => {
-            console.log(response);
             Swal.fire(`User ${data.name} deleted`);
             loadTable();
         }, (error) => {
-            console.log(error);
             Swal.fire(`Error to delete user: ${error.response.data.error} `);
             loadTable();
         });
