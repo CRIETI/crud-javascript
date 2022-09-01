@@ -1,13 +1,10 @@
 const router = require('express').Router();
-const cors = require('cors');
 const UserModel = require('../models/User');
 const usersController = require('../controllers/UsersController');
 
-router.use(cors());
-
 const validateUserId = async (req, res, next) => {
   const user = await UserModel.findByPk(req.params.userId);
-  if (! user) {
+  if (!user) {
     return res.status(404).json({ error: 'User not found' });
   }
   next();
