@@ -1,7 +1,7 @@
-const endpoint = "http://localhost:3000";
+const ENDPOINT = "http://localhost:3000";
 
 const loadTable = () => {
-    axios.get(`${endpoint}/users`)
+    axios.get(`${ENDPOINT}/users`)
         .then((response) => {
             if (response.status === 200) {
                 const data = response.data;
@@ -30,7 +30,7 @@ const userCreate = () => {
     const sex = document.getElementById("sex").value;
     const email = document.getElementById("email").value;
 
-    axios.post(`${endpoint}/users`, {
+    axios.post(`${ENDPOINT}/users`, {
         name: name,
         age: age,
         sex: sex,
@@ -48,7 +48,7 @@ const userCreate = () => {
 }
 
 const getUser = (id) => {
-    return axios.get(`${endpoint}/users/` + id);
+    return axios.get(`${ENDPOINT}/users/` + id);
 }
 
 const userEdit = () => {
@@ -58,7 +58,7 @@ const userEdit = () => {
     const sex = document.getElementById("sex").value;
     const email = document.getElementById("email").value;
 
-    axios.put(`${endpoint}/users/` + id, {
+    axios.put(`${ENDPOINT}/users/` + id, {
         name: name,
         age: age,
         sex: sex,
@@ -78,7 +78,7 @@ const userEdit = () => {
 const userDelete = async (id) => {
     const user = await getUser(id);
     const data = user.data;
-    axios.delete(`${endpoint}/users/` + id)
+    axios.delete(`${ENDPOINT}/users/` + id)
         .then((response) => {
             Swal.fire(`User ${data.name} deleted`);
             loadTable();

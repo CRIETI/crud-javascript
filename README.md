@@ -11,10 +11,10 @@ Para o projeto funcionar, a API deve ser iniciada e depois executado o frontend
 
 ### API
 
-Acesse o diretório API
+Acesse o diretório api
 
 ```
-cd API
+cd api
 ```
 
 Crie o arquivo `.env` com base no `.env.example`
@@ -38,7 +38,7 @@ npm run serve
 No front, basta editar o arquivo `index.js`, na primeira linha, colocando o endpoint da sua API. No caso, está configurado para usar o `http://localhost:3000/`
 
 ```javascript
-const endpoint = "http://localhost:3000";
+const ENDPOINT = "http://localhost:3000";
 ```
 
 Abra o arquivo index.html e utilize.
