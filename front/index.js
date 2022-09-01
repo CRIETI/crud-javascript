@@ -1,5 +1,7 @@
+const endpoint = "http://177.44.248.30/usersapi";
+
 loadTable = () => {
-    axios.get('http://localhost:3000/users')
+    axios.get(`${endpoint}/users`)
         .then((response) => {
             if (response.status === 200) {
                 const data = response.data;
@@ -28,7 +30,7 @@ userCreate = () => {
     const sex = document.getElementById("sex").value;
     const email = document.getElementById("email").value;
 
-    axios.post('http://localhost:3000/users', {
+    axios.post(`${endpoint}/users`, {
         name: name,
         age: age,
         sex: sex,
@@ -40,13 +42,13 @@ userCreate = () => {
             loadTable();
         }, (error) => {
             console.log(error);
-            Swal.fire(error);
+            Swal.fire(`Error to create user: ${error.response.data.error} `);
             loadTable();
         });
 }
 
 getUser = (id) => {
-    return axios.get('http://localhost:3000/users/' + id);
+    return axios.get(`${endpoint}/users/` + id);
 }
 
 userEdit = () => {
@@ -56,7 +58,7 @@ userEdit = () => {
     const sex = document.getElementById("sex").value;
     const email = document.getElementById("email").value;
 
-    axios.put('http://localhost:3000/users/' + id, {
+    axios.put(`${endpoint}/users/` + id, {
         name: name,
         age: age,
         sex: sex,
@@ -112,7 +114,7 @@ showUserEditBox = async (id) => {
 userDelete = async (id) => {
     const user = await getUser(id);
     const data = user.data;
-    axios.delete('http://localhost:3000/users/' + id)
+    axios.delete(`${endpoint}/users/` + id)
         .then((response) => {
             console.log(response);
             Swal.fire(`User ${data.name} deleted`);
