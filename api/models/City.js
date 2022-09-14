@@ -28,9 +28,8 @@ City.init({
   modelName: 'City'
 });
 
-
 // Doc: https://sequelize.org/docs/v6/core-concepts/assocs/#one-to-many-relationships
-// State.hasMany(City);
-// City.belongsTo(State);
+State.hasMany(City);
+City.belongsTo(State);
 
 module.exports = City;

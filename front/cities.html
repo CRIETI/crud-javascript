@@ -1,5 +1,3 @@
-<!doctype html>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -11,24 +9,30 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="styles.css" rel="stylesheet">
+    <link href="assets/styles.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <nav class="navbar navbar-dark bg-mynav">
-        <div class="container-fluid">
-            <a class="navbar-brand navbar-brand--black" href="#">Users CRUD</a>
-        </div>
-    </nav>
+    <ul class="nav nav-pills bg-mynav navbar-dark">
+        <li class="nav-item">
+            <a class="nav-link nav-link--black" href="states.html">States</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="cities.html">Cities</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link--black" href="users.html">Users</a>
+        </li>
+    </ul>
 
     <div class="container">
         <div class="d-flex bd-highlight mb-3">
             <div class="me-auto p-2 bd-highlight">
-                <h2>Users
+                <h2>City
             </div>
             <div class="p-2 bd-highlight">
-                <button type="button" class="btn btn-secondary" onclick="showUserCreateBox()">Create</button>
+                <button type="button" class="btn btn-secondary" onclick="showCityCreateBox()">Create</button>
             </div>
         </div>
 
@@ -38,10 +42,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Sex</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">State</th>
                     </tr>
                 </thead>
                 <tbody id="mytable">
@@ -54,7 +55,7 @@
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="index.js"></script>
+    <script src="js/cities.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"

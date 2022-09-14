@@ -3,22 +3,20 @@ const ENDPOINT = "http://localhost:3000";
 const loadTable = () => {
     axios.get(`${ENDPOINT}/users`)
         .then((response) => {
-            if (response.status === 200) {
-                const data = response.data;
-                var trHTML = '';
-                data.forEach(element => {
-                    trHTML += '<tr>';
-                    trHTML += '<td>' + element.id + '</td>';
-                    trHTML += '<td>' + element.name + '</td>';
-                    trHTML += '<td>' + element.age + '</td>';
-                    trHTML += '<td>' + element.sex + '</td>';
-                    trHTML += '<td>' + element.email + '</td>';
-                    trHTML += '<td><button type="button" class="btn btn-outline-secondary" onclick="showUserEditBox(' + element.id + ')">Edit</button>';
-                    trHTML += '<button type="button" class="btn btn-outline-danger" onclick="userDelete(' + element.id + ')">Del</button></td>';
-                    trHTML += "</tr>";
-                });
-                document.getElementById("mytable").innerHTML = trHTML;
-            }
+            const data = response.data;
+            var trHTML = '';
+            data.forEach(element => {
+                trHTML += '<tr>';
+                trHTML += '<td>' + element.id + '</td>';
+                trHTML += '<td>' + element.name + '</td>';
+                trHTML += '<td>' + element.age + '</td>';
+                trHTML += '<td>' + element.sex + '</td>';
+                trHTML += '<td>' + element.email + '</td>';
+                trHTML += '<td><button type="button" class="btn btn-outline-secondary" onclick="showUserEditBox(' + element.id + ')">Edit</button>';
+                trHTML += '<button type="button" class="btn btn-outline-danger" onclick="userDelete(' + element.id + ')">Del</button></td>';
+                trHTML += "</tr>";
+            });
+            document.getElementById("mytable").innerHTML = trHTML;
         })
 };
 
