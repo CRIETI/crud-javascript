@@ -32,7 +32,6 @@ const cityEdit = () => {
     const id = document.getElementById("id").value;
     const name = document.getElementById("name").value;
     const state = document.getElementById("mySelect").value;
-    console.log(id);
     axios.put(`${ENDPOINT}/cities/` + id, {
         name: name,
         StateId: state,

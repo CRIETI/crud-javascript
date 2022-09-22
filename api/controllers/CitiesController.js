@@ -83,8 +83,6 @@ class CitiesController {
       }
     });
 
-    console.log(cities);
-
     return cities > 0;
   }
 
